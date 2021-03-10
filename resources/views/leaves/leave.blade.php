@@ -208,7 +208,7 @@
                         <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                     </span>
                     <div class="media-body ml-2 d-none d-lg-block">
-                        <span class="mb-0 text-sm  font-weight-bold">Admin Admin</span>
+                        <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
                     </div>
                 </div>
             </a>
@@ -332,7 +332,9 @@
                         </thead>
                         <tbody>
                                                                 <tr>
-                                    <td>Admin Admin</td>
+                                    <td><div class="media-body ml-2 d-none d-lg-block">
+                            <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                        </div></td>
                                     <td>
                                         <a href="mailto:admin@argon.com">admin@argon.com</a>
                                     </td>

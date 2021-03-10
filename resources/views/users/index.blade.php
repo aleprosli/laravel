@@ -45,7 +45,7 @@
                 <div class=" dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                 </div>
-                <a href=href="{{ route('profile.edit') }}" class="dropdown-item">
+                <a href="{{ route('profile.edit') }}" class="dropdown-item">
                     <i class="ni ni-single-02"></i>
                     <span>My profile</span>
                 </a>
@@ -208,7 +208,7 @@
                         <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                     </span>
                     <div class="media-body ml-2 d-none d-lg-block">
-                        <span class="mb-0 text-sm  font-weight-bold">Admin Admin</span>
+                        <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
                     </div>
                 </div>
             </a>
