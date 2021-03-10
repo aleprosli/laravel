@@ -365,11 +365,11 @@
                         </thead>
                         <tbody>
                                                                 <tr>
-                                    <td>Admin Admin</td>
+                                    <td>{{ auth()->user()->name }}</td>
                                     <td>
-                                        <a href="mailto:admin@argon.com">admin@argon.com</a>
+                                        <a href="mailto:admin@argon.com">{{ auth()->user()->email }}</a>
                                     </td>
-                                    <td>12/02/2020 11:00</td>
+                                    <td>{{ auth()->user()->created_at }}</td>
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
