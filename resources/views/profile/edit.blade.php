@@ -60,6 +60,48 @@
                                         </span>
                                     @endif
                                 </div>
+                                  <div class="form-group{{ $errors->has('gender') ? ' has-danger' : '' }}"">
+                                    <label for="gender">Gender </label>
+                                    <select class="form-control" id="gender">
+                                      <option>Male</option>
+                                      <option>Female</option>
+                                    </select>
+                                    @if ($errors->has('gender'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                                  </div>
+                                  <div class="form-group{{ $errors->has('ic') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-ic">{{ __('Identification Number') }}</label>
+                                    <input type="number" name="ic" id="input-ic" class="form-control form-control-alternative{{ $errors->has('ic') ? ' is-invalid' : '' }}" placeholder="{{ __('Identification Number') }}" value="{{ old('ic', auth()->user()->ic) }}" required>
+
+                                    @if ($errors->has('ic'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('ic') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group{{ $errors->has('address') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-address">{{ __('Address') }}</label>
+                                    <input type="text" name="address" id="input-address" class="form-control form-control-alternative{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="{{ __('Address') }}" value="{{ old('address', auth()->user()->address) }}" required>
+
+                                    @if ($errors->has('address'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('address') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                  <div class="form-group{{ $errors->has('mnum') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-mnum">{{ __('Mobile Number') }}</label>
+                                    <input type="number" name="mnum" id="input-mnum" class="form-control form-control-alternative{{ $errors->has('mnum') ? ' is-invalid' : '' }}" placeholder="{{ __('Mobile Number') }}" value="{{ old('mnum', auth()->user()->mnum) }}" required>
+
+                                    @if ($errors->has('mnum'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('mnum') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
                                     <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
@@ -70,6 +112,27 @@
                                         </span>
                                     @endif
                                 </div>
+                                <div class="form-group{{ $errors->has('bank') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-bank">{{ __('Bank') }}</label>
+                                    <input type="text" name="bank" id="input-bank" class="form-control form-control-alternative{{ $errors->has('bank') ? ' is-invalid' : '' }}" placeholder="{{ __('Bank') }}" value="{{ old('bank', auth()->user()->bank) }}" required>
+
+                                    @if ($errors->has('bank'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('bank') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group{{ $errors->has('bankacc') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-bankacc">{{ __('Bank Account') }}</label>
+                                    <input type="number" name="bankacc" id="input-bankacc" class="form-control form-control-alternative{{ $errors->has('bankacc') ? ' is-invalid' : '' }}" placeholder="{{ __('Bank Account') }}" value="{{ old('bankacc', auth()->user()->bankacc) }}" required >
+
+                                    @if ($errors->has('bankacc'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('bankacc') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>

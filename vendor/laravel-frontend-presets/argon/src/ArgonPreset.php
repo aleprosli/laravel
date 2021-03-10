@@ -16,16 +16,16 @@ class ArgonPreset extends Preset
      */
     public static function install()
     {
-        static::updatePackages();     
-        static::updateAssets();      
-        
+        static::updatePackages();
+        static::updateAssets();
+
         static::updateWelcomePage();
         static::updateAuthViews();
         static::updateLayoutViews();
         static::updateDashboardPage();
-        
+
         static::addUserManagement();
-        
+
         // static::removeNodeModules();
     }
 
@@ -101,16 +101,16 @@ class ArgonPreset extends Preset
 
         // Add Auth routes in 'routes/web.php'
         file_put_contents(
-            './routes/web.php', 
-            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n", 
+            './routes/web.php',
+            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
             FILE_APPEND
         );
-        
+
         // Copy argon auth views from the stubs folder
         static::deleteResource('views/home.blade.php');
         static::copyDirectory('resources/views/auth', resource_path('views/auth'));
     }
-    
+
     /**
      * Copy user management and profile edit files
      *
@@ -120,7 +120,7 @@ class ArgonPreset extends Preset
     {
         // Add seeder, controllers, requests and rules
         static::copyDirectory('database/seeds', app_path('../database/seeds'));
-               
+
         static::copyFile('app/Http/Controllers/UserController.php', app_path('Http/Controllers/UserController.php'));
         static::copyFile('app/Http/Controllers/ProfileController.php', app_path('Http/Controllers/ProfileController.php'));
         static::copyDirectory('app/Http/Requests', app_path('Http/Requests'));
@@ -128,8 +128,8 @@ class ArgonPreset extends Preset
 
         // Add routes
         file_put_contents(
-            './routes/web.php', 
-            "Route::group(['middleware' => 'auth'], function () {\n\tRoute::resource('user', 'UserController', ['except' => ['show']]);\n\tRoute::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);\n\tRoute::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);\n\tRoute::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);\n});\n\n", 
+            './routes/web.php',
+            "Route::group(['middleware' => 'auth'], function () {\n\tRoute::resource('user', 'UserController', ['except' => ['show']]);\n\tRoute::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);\n\tRoute::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);\n\tRoute::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);\n});\n\n",
             FILE_APPEND
         );
 
