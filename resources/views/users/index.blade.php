@@ -118,12 +118,12 @@
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profile.edit') }}">
-                                User profile
+                                Employee profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.index') }}">
-                                User Managements
+                                Employee Management
                             </a>
                         </li>
                     </ul>
@@ -139,7 +139,7 @@
                 <a class="nav-link" href="#">
                     <i class="ni ni-pin-3 text-orange"></i> Notification
                 </a>
-            {{-- </li>
+            <!-- {{-- </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="ni ni-key-25 text-info"></i> Login
@@ -154,7 +154,7 @@
                 <a class="nav-link" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
                     <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
                 </a>
-            </li> --}}
+            </li> --}} -->
         </ul>
 
         <!-- Divider -->

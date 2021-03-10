@@ -118,12 +118,12 @@
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profile.edit') }}">
-                                User profile
+                                Employee profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.index') }}">
-                                User Managements
+                                Employee Management
                             </a>
                         </li>
                     </ul>
