@@ -15,6 +15,12 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Admin Admin',
             'email' => 'admin@argon.com',
+            'ic' => '123456',
+            'gender' => 'Male',
+            'mnum' => '999',
+            'address' => 'Seri kembangan',
+            'bank' => 'maybank',
+            'bankacc' => '123',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
             'created_at' => now(),

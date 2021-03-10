@@ -17,7 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->Biginteger('ic')->unique();
+            $table->string('gender')->nullable();
+            $table->unsignedinteger('mnum')->unique();
+            $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('bank')->nullable();
+            $table->unsignedinteger('bankacc')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
