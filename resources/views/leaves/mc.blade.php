@@ -34,9 +34,9 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('mc') }}" autocomplete="off">
+                        <form method="post" action="{{ route('mc.store') }}" autocomplete="off">
                             @csrf
-                            @method('put')
+                            {{-- @method('put') --}}
 
                             <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
 
@@ -50,14 +50,14 @@
                             @endif
 
                             <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                {{-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
                                     <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus>
 
-                                </div>
+                                </div> --}}
                                 <form>
                                     <label class="form-control-label" for="input-reason">{{ __('Reason') }}</label>
-                                    <textarea class="form-control" id="input-reason" rows="3" placeholder="Why you applying this MC?" value="{{ old('name', auth()->user()->reason) }}" required autofocus></textarea>
+                                    <textarea class="form-control" name="reason" id="input-reason" rows="3" placeholder="Why you applying this MC?" value="{{ old('name', auth()->user()->reason) }}" required autofocus></textarea>
                                   </form>
                                 <div class="input-daterange datepicker row align-items-center">
                                     <div class="col">
@@ -66,7 +66,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="Start date" type="text" value="">
+                                                <input class="form-control" placeholder="Start date" type="date" value="" name="date_from">
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                                 </div>
-                                                <input class="form-control" placeholder="End date" type="text" value="06/22/2020">
+                                                <input class="form-control" placeholder="End date" type="date" value="" name="date_to">
                                             </div>
                                         </div>
                                     </div>

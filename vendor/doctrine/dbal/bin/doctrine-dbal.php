@@ -1,57 +1,43 @@
 <?php
 
-use Doctrine\DBAL\Tools\Console\ConsoleRunner;
-use Symfony\Component\Console\Helper\HelperSet;
+require_once 'Doctrine/Common/ClassLoader.php';
 
-$files       = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php'];
-$loader      = null;
-$cwd         = getcwd();
-$directories = [$cwd, $cwd . DIRECTORY_SEPARATOR . 'config'];
-$configFile  = null;
+$classLoader = new \Doctrine\Common\ClassLoader('Doctrine');
+$classLoader->register();
 
-foreach ($files as $file) {
-    if (file_exists($file)) {
-        $loader = require $file;
+$classLoader = new \Doctrine\Common\ClassLoader('Symfony');
+$classLoader->register();
 
-        break;
+$configFile = getcwd() . DIRECTORY_SEPARATOR . 'cli-config.php';
+
+$helperSet = null;
+if (file_exists($configFile)) {
+    if ( ! is_readable($configFile)) {
+        trigger_error(
+            'Configuration file [' . $configFile . '] does not have read permission.', E_ERROR
+        );
     }
-}
 
-if (! $loader) {
-    throw new RuntimeException('vendor/autoload.php could not be found. Did you run `php composer.phar install`?');
-}
+    require $configFile;
 
-foreach ($directories as $directory) {
-    $configFile = $directory . DIRECTORY_SEPARATOR . 'cli-config.php';
-
-    if (file_exists($configFile)) {
-        break;
-    }
-}
-
-if (! file_exists($configFile)) {
-    ConsoleRunner::printCliConfigTemplate();
-
-    exit(1);
-}
-
-if (! is_readable($configFile)) {
-    echo 'Configuration file [' . $configFile . '] does not have read permission.' . PHP_EOL;
-
-    exit(1);
-}
-
-$commands  = [];
-$helperSet = require $configFile;
-
-if (! $helperSet instanceof HelperSet) {
     foreach ($GLOBALS as $helperSetCandidate) {
-        if ($helperSetCandidate instanceof HelperSet) {
+        if ($helperSetCandidate instanceof \Symfony\Component\Console\Helper\HelperSet) {
             $helperSet = $helperSetCandidate;
-
             break;
         }
     }
 }
 
-ConsoleRunner::run($helperSet, $commands);
+$helperSet = ($helperSet) ?: new \Symfony\Component\Console\Helper\HelperSet();
+
+$cli = new \Symfony\Component\Console\Application('Doctrine Command Line Interface', Doctrine\DBAL\Version::VERSION);
+$cli->setCatchExceptions(true);
+$cli->setHelperSet($helperSet);
+$cli->addCommands(array(
+    // DBAL Commands
+    new \Doctrine\DBAL\Tools\Console\Command\RunSqlCommand(),
+    new \Doctrine\DBAL\Tools\Console\Command\ImportCommand(),
+    new \Doctrine\DBAL\Tools\Console\Command\ReservedWordsCommand(),
+
+));
+$cli->run();

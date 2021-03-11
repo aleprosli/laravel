@@ -1,118 +1,44 @@
 <?php
+/*
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the MIT license. For more information, see
+ * <http://www.doctrine-project.org>.
+ */
 
 namespace Doctrine\DBAL\Driver;
 
 use PDO;
 
-use function assert;
-use function func_get_args;
-
 /**
  * PDO implementation of the Connection interface.
  * Used by all PDO-based drivers.
+ *
+ * @since 2.0
  */
-class PDOConnection extends PDO implements Connection, ServerInfoAwareConnection
+class PDOConnection extends PDO implements Connection
 {
     /**
-     * @param string       $dsn
-     * @param string|null  $user
-     * @param string|null  $password
-     * @param mixed[]|null $options
-     *
-     * @throws PDOException In case of an error.
+     * @param string      $dsn
+     * @param string|null $user
+     * @param string|null $password
+     * @param array|null  $options
      */
-    public function __construct($dsn, $user = null, $password = null, ?array $options = null)
+    public function __construct($dsn, $user = null, $password = null, array $options = null)
     {
-        try {
-            parent::__construct($dsn, (string) $user, (string) $password, (array) $options);
-            $this->setAttribute(PDO::ATTR_STATEMENT_CLASS, [PDOStatement::class, []]);
-            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (\PDOException $exception) {
-            throw new PDOException($exception);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function exec($sql)
-    {
-        try {
-            $result = parent::exec($sql);
-            assert($result !== false);
-
-            return $result;
-        } catch (\PDOException $exception) {
-            throw new PDOException($exception);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getServerVersion()
-    {
-        return PDO::getAttribute(PDO::ATTR_SERVER_VERSION);
-    }
-
-    /**
-     * @param string          $sql
-     * @param array<int, int> $driverOptions
-     *
-     * @return \PDOStatement
-     */
-    public function prepare($sql, $driverOptions = [])
-    {
-        try {
-            $statement = parent::prepare($sql, $driverOptions);
-            assert($statement instanceof \PDOStatement);
-
-            return $statement;
-        } catch (\PDOException $exception) {
-            throw new PDOException($exception);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return \PDOStatement
-     */
-    public function query()
-    {
-        $args = func_get_args();
-
-        try {
-            $stmt = parent::query(...$args);
-            assert($stmt instanceof \PDOStatement);
-
-            return $stmt;
-        } catch (\PDOException $exception) {
-            throw new PDOException($exception);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function lastInsertId($name = null)
-    {
-        try {
-            if ($name === null) {
-                return parent::lastInsertId();
-            }
-
-            return parent::lastInsertId($name);
-        } catch (\PDOException $exception) {
-            throw new PDOException($exception);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function requiresQueryForServerVersion()
-    {
-        return false;
+        parent::__construct($dsn, $user, $password, $options);
+        $this->setAttribute(PDO::ATTR_STATEMENT_CLASS, array('Doctrine\DBAL\Driver\PDOStatement', array()));
+        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
