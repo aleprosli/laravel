@@ -37,8 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mc', ['as' => 'mc', 'uses' => 'mcController@index']);
     Route::get('/al', ['as' => 'al', 'uses' => 'alController@index']);
     Route::get('/ul', ['as' => 'ul', 'uses' => 'ulController@index']);
-	Route::put('/mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
+	Route::put('mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
+
+    });
 
     // Route::get('/leaves/typeleave', 'LeaveController');
-});
+
 

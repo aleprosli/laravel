@@ -11,12 +11,15 @@ class mcController extends Controller
         return view('leaves.mc');
     }
 
-    public function create(array $data)
+    public function create()
     {
-        return User::create([
-            'name' => $data['name'],
-            'reason' => $data['reason'],
-
+        return view('leaves.mc');
+    }
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'reason' => 'nullable',
         ]);
     }
 }

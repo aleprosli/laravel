@@ -63,8 +63,8 @@
                                   <div class="form-group{{ $errors->has('gender') ? ' has-danger' : '' }}"">
                                     <label for="gender">Gender </label>
                                     <select class="form-control" id="gender">
-                                      <option>Male</option>
-                                      <option>Female</option>
+                                      <option value=0>Male</option>
+                                      <option value=1>Female</option>
                                     </select>
                                     @if ($errors->has('gender'))
                                     <span class="invalid-feedback" role="alert">
