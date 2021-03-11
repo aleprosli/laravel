@@ -10,4 +10,16 @@ class mcController extends Controller
     {
         return view('leaves.mc');
     }
+
+    public function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'reason' => $data['reason'],
+
+        ]);
+    }
 }
+
+
+

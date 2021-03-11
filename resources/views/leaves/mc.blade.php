@@ -56,7 +56,8 @@
 
                                 </div>
                                 <form>
-                                    <textarea class="form-control" id="input-reason" rows="3" placeholder="Why you applying this MC?"></textarea>
+                                    <label class="form-control-label" for="input-reason">{{ __('Reason') }}</label>
+                                    <textarea class="form-control" id="input-reason" rows="3" placeholder="Why you applying this MC?" value="{{ old('name', auth()->user()->reason) }}" required autofocus></textarea>
                                   </form>
                                 <div class="input-daterange datepicker row align-items-center">
                                     <div class="col">
