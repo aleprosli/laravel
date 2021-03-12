@@ -38,7 +38,6 @@ return array(
     'App\\Http\\Requests\\PasswordRequest' => $baseDir . '/app/Http/Requests/PasswordRequest.php',
     'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
-    'App\\Mc' => $baseDir . '/app/Mc.php',
     'App\\Mc1' => $baseDir . '/app/Mc1.php',
     'App\\Model' => $baseDir . '/app/Model.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
