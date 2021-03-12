@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Al;
+use Illuminate\Http\Request;
+
 
 class alController extends Controller
 {
@@ -20,7 +20,7 @@ class alController extends Controller
     public function store(Request $request)
     {
         // dd(auth()->user()->id);
-        dd($request);
+        // dd($request);
 
         $al = new Al([
             'name' => $request->name ?? null,

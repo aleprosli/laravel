@@ -273,7 +273,7 @@
                             <div class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0">UL</h5>
                                 <span class="h2 font-weight-bold mb-0">Unpaid Leave</span>
-                                <a href="{{ route('ul') }}" class="btn btn-sm btn-primary">ClickHere</a>
+                                {{-- <a href="{{ route('ul') }}" class="btn btn-sm btn-primary">ClickHere</a> --}}
                             </div>
 
 
@@ -289,7 +289,7 @@
                             <div class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0">AL</h5>
                                 <span class="h2 font-weight-bold mb-0">Annual Leave</span>
-                                <a href="{{ route('al') }}" class="btn btn-sm btn-primary">ClickHere</a>
+                                <a href="{{ route('al.index') }}" class="btn btn-sm btn-primary">ClickHere</a>
                             </div>
 
                         </div>

@@ -34,8 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
     Route::get('/leave', ['as' => 'leave', 'uses' => 'LeaveController@index']);
+    // Route::resource('leave', 'LeaveController');
     Route::resource('mc', 'mcController');
     Route::resource('al', 'alController');
+    Route::resource('ul', 'ulController');
 
 	// Route::post('mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
 

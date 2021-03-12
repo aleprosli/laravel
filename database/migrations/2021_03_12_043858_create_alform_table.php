@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMcformTable extends Migration
+class CreateAlformTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateMcformTable extends Migration
      */
     public function up()
     {
-        Schema::create('mcform', function (Blueprint $table) {
+        Schema::create('alform', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->unsignedInteger('user_id');
             $table->string('reason')->nullable();
+            $table->dateTime('date_from')->nullable();
+            $table->dateTime('date_to')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +32,6 @@ class CreateMcformTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mcform');
+        Schema::dropIfExists('alform');
     }
 }
