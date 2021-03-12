@@ -35,8 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
     Route::get('/leave', ['as' => 'leave', 'uses' => 'LeaveController@index']);
     Route::resource('mc', 'mcController');
-    Route::get('/al', ['as' => 'al', 'uses' => 'alController@index']);
-    Route::get('/ul', ['as' => 'ul', 'uses' => 'ulController@index']);
+    Route::resource('al', 'alController');
+
 	// Route::post('mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
 
     });
