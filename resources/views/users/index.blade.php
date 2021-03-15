@@ -264,7 +264,7 @@
                             <h3 class="mb-0">Users</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="" class="btn btn-sm btn-primary">Add user</a>
+                            <a href="#" class="btn btn-sm btn-primary">Add user</a>
                         </div>
                     </div>
                 </div>
@@ -278,13 +278,36 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Creation Date</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Indentification Number</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Mobile Number</th>
+                                <th scope="col">Bank</th>
+                                <th scope="col">Bank Account</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                                                                <tr>
-                                    <td>{{ auth()->user()->name }}</td>
+                        @foreach( $table as $user )
+                                                                            <tr>
+                                                <td>{{ $user->name }}</td>
+                                                <td>
+                                                    {{ $user->email }}
+                                                </td>
+                                                <td>{{ $user->gender }}</td>
+                                                <td>
+                                                    {{ $user->ic }}
+                                                </td>
+                                                <td>{{ $user->address }}</td>
+                                                <td>
+                                                    {{ $user->mnum }}
+                                                    <td>{{ $user->bank }}</td>
+                                                <td>
+                                                    {{ $user->bankacc }}
+                                                </td>
+                                                </td>
+                                                @endforeach
+                                    <!-- <td>{{ auth()->user()->name }}</td>
                                     <td>
                                         <a href="mailto:admin@argon.com">{{ auth()->user()->email }}</a>
                                     </td>
@@ -299,7 +322,7 @@
                                                                                                 </div>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr> -->
                                                         </tbody>
                     </table>
                 </div>
