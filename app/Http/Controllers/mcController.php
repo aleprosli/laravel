@@ -33,7 +33,7 @@ class mcController extends Controller
 
         $mc->save();
 
-        return view('leaves.leave');
+        return view('welcome');
     }
 }
 

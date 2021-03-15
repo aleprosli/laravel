@@ -333,25 +333,38 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
                                             <th scope="col">Creation Date</th>
                                             <th scope="col">Type of Leave</th>
                                             <th scope="col">Reason</th>
-                                            <th scope="col">Date</th>
+                                            <th scope="col">Date From</th>
+                                            <th scope="col">Date To</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach( $table as $user )
                                                                             <tr>
-                                                <td>{{ auth()->user()->name }}</td>
+                                                <td>{{ $user->name }}</td>
                                                 <td>
-                                                    {{ auth()->user()->email }}</a>
+                                                    {{-- {{ $user->creationdate }} --}}
                                                 </td>
-                                                <td>{{ auth()->user()->created_at }}</td>
+                                                <td>
+                                                    {{-- {{ $user->typeleave }} --}}
+                                                </td>
+                                                <td>{{ $user->reason }}</td>
+                                                <td>
+                                                    {{ $user->date_from }}
+                                                </td>
+                                                <td>
+                                                    {{ $user->date_to }}
+                                                </td>
+                                                {{-- <td>{{ $user->status }}</td> --}}
+                                                {{-- <td>{{ auth()->user()->created_at }}</td>
                                                 <td>{{ auth()->user()->name }}</td>
                                                 <td>{{ auth()->user()->reason }}</td>
                                                 <td>{{ auth()->user()->date }}</td>
-                                                <td>{{ auth()->user()->name }}</td>
+                                                <td>{{ auth()->user()->name }}</td> --}}
+                                                @endforeach
 
 
                                                 <td class="text-right">
