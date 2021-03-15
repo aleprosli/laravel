@@ -50,7 +50,7 @@
                             @endif
 
                             <div class="pl-lg-4">
-                                {{-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
                                     <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus>
 
@@ -59,7 +59,7 @@
                                             <strong>{{ $errors->first('name') }}</strong>
                                         </span>
                                     @endif
-                                </div> --}}
+                                </div>
                                 <form>
                                     <label class="form-control-label" for="input-reason">{{ __('Reason') }}</label>
                                     <textarea class="form-control" name="reason" id="input-reason" rows="3" placeholder="Why you applying this MC?" value="{{ old('name', auth()->user()->reason) }}" required autofocus></textarea>

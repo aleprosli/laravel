@@ -264,7 +264,7 @@
                             <h3 class="mb-0">Users</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                            <a href="" class="btn btn-sm btn-primary">Add user</a>
                         </div>
                     </div>
                 </div>
@@ -278,6 +278,7 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Creation Date</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Indentification Number</th>
                                 <th scope="col">Address</th>
@@ -288,41 +289,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach( $table as $user )
-                                                                            <tr>
-                                                <td>{{ $user->name }}</td>
-                                                <td>
-                                                    {{ $user->email }}
-                                                </td>
-                                                <td>{{ $user->gender }}</td>
-                                                <td>
-                                                    {{ $user->ic }}
-                                                </td>
-                                                <td>{{ $user->address }}</td>
-                                                <td>
-                                                    {{ $user->mnum }}
-                                                    <td>{{ $user->bank }}</td>
-                                                <td>
-                                                    {{ $user->bankacc }}
-                                                </td>
-                                                </td>
-                                                @endforeach
-                                    <!-- <td>{{ auth()->user()->name }}</td>
-                                    <td>
-                                        <a href="mailto:admin@argon.com">{{ auth()->user()->email }}</a>
-                                    </td>
-                                    <td>{{ auth()->user()->created_at }}</td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                                                                        <a class="dropdown-item" href="">Edit</a>
-                                                                                                </div>
-                                        </div>
-                                    </td>
-                                </tr> -->
+
+                                                                <tr>
+                                                                    @foreach( $table as $user )
+                                                                    <tr>
+                                        <td>{{ $user->name }}</td>
+                                        <td>
+                                            {{ $user->email }}
+                                        </td>
+                                        <td>{{ $user->gender }}</td>
+                                        <td>
+                                            {{ $user->ic }}
+                                        </td>
+                                        <td>{{ $user->address }}</td>
+                                        <td>
+                                            {{ $user->mnum }}
+                                            <td>{{ $user->bank }}</td>
+                                        <td>
+                                            {{ $user->bankacc }}
+                                        </td>
+                                        </td>
+                                        @endforeach
+                                </tr>
                                                         </tbody>
                     </table>
                 </div>
