@@ -668,6 +668,7 @@ class ComposerStaticInit8b8ffe6b8742dc7180e6967dd7bf7727
         'App\\Http\\Requests\\PasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PasswordRequest.php',
         'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
+        'App\\Leave' => __DIR__ . '/../..' . '/app/Leave.php',
         'App\\Mc1' => __DIR__ . '/../..' . '/app/Mc1.php',
         'App\\Model' => __DIR__ . '/../..' . '/app/Model.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

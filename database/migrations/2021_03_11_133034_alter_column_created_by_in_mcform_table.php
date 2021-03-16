@@ -19,6 +19,7 @@ class AlterColumnCreatedByInMcformTable extends Migration
             $table->dateTime('date_to')->nullable()->after('date_from');
             $table->unsignedInteger('created_by')->after('date_to');
             $table->unsignedInteger('typeofleave')->after('reason');
+            $table->string('status')->default('pending');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('created_by')->references('id')->on('users');

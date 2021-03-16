@@ -358,6 +358,9 @@
                                                 <td>
                                                     {{ $user->date_to }}
                                                 </td>
+                                                <td>
+                                                    {{ $user->status }}
+                                                </td>
                                                 {{-- <td>{{ $user->status }}</td> --}}
                                                 {{-- <td>{{ auth()->user()->created_at }}</td>
                                                 <td>{{ auth()->user()->name }}</td>
