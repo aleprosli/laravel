@@ -264,7 +264,7 @@
                             <h3 class="mb-0">Users</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="" class="btn btn-sm btn-primary">Add user</a>
+                            <a href="{{ route('addUser.index') }}" class="btn btn-sm btn-primary">Add user</a>
                         </div>
                     </div>
                 </div>
@@ -297,6 +297,9 @@
                                         <td>
                                             {{ $user->email }}
                                         </td>
+                                        <td>
+                                            {{ $user->created_at }}
+                                        </td>
                                         <td>{{ $user->gender }}</td>
                                         <td>
                                             {{ $user->ic }}
@@ -304,7 +307,7 @@
                                         <td>{{ $user->address }}</td>
                                         <td>
                                             {{ $user->mnum }}
-                                            <td>{{ $user->bank }}</td>
+                                        <td>{{ $user->bank }}</td>
                                         <td>
                                             {{ $user->bankacc }}
                                         </td>

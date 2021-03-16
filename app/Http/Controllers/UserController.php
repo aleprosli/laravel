@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        $table  = DB::select('SELECT * FROM `laravel`.`users`');
+        $table  = DB::select('SELECT * FROM `laravel1`.`users`');
         return view('users.index', compact('table'));
     }
+    
 }

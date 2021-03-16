@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('mc', 'mcController');
     Route::resource('al', 'alController');
     Route::resource('ul', 'ulController');
+    Route::resource('addUser', 'addUserController');
 
 	// Route::post('mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
 
