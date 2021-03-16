@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterColumnCreatedByInAlformTable extends Migration
+class CreateTypeofleavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AlterColumnCreatedByInAlformTable extends Migration
      */
     public function up()
     {
-        Schema::table('alform', function (Blueprint $table) {
-
-            $table->unsignedInteger('created_by')->after('date_from');
-
-            $table->foreign('created_by')->references('id')->on('users');
+        Schema::create('typeofleaves', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -28,8 +27,6 @@ class AlterColumnCreatedByInAlformTable extends Migration
      */
     public function down()
     {
-        Schema::table('alform', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('typeofleaves');
     }
 }

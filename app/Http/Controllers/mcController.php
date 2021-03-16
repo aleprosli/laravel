@@ -25,6 +25,7 @@ class mcController extends Controller
             'name' => $request->name ?? null,
             'reason' => $request->reason,
             'user_id' => auth()->user()->id,
+            'typeofleaves' => '1',
             'date_from' => $request->date_from,
             'date_to' => $request->date_to,
             'created_by' => auth()->user()->id,

@@ -49,34 +49,8 @@
                                 </div>
                             @endif
 
-                            <div class="pl-lg-4">
-                                <form>
-                                    <label class="form-control-label" for="input-reason">{{ __('Reason') }}</label>
-                                    <textarea class="form-control" name="reason" id="input-reason" rows="3" placeholder="Why you applying this MC?" value="{{ old('name', auth()->user()->reason) }}" required autofocus></textarea>
-                                  </form>
-                                <div class="input-daterange datepicker row align-items-center">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <div class="input-group input-group-alternative">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                                </div>
-                                                <input class="form-control" placeholder="Start date" type="date" value="" name="date_from">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <div class="input-group input-group-alternative">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                                </div>
-                                                <input class="form-control" placeholder="End date" type="date" value="" name="date_to">
-                                            </div>
-                                        </div>
-                                    </div>
+                            @include('leaves.form')
 
-                                </div>
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>

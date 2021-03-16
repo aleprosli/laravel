@@ -320,7 +320,7 @@
                                         <h3 class="mb-0">List of Leaves </h3>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <a href="" class="btn btn-sm btn-primary">Add user</a>
+                                        <a href="" class="btn btn-sm btn-primary">Confirm</a>
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@
                                                     {{-- {{ $user->creationdate }} --}}
                                                 </td>
                                                 <td>
-                                                    {{-- {{ $user->typeleave }} --}}
+                                                    {{ $user->typeofleaves }}
                                                 </td>
                                                 <td>{{ $user->reason }}</td>
                                                 <td>

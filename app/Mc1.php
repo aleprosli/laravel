@@ -16,6 +16,6 @@ class Mc1 extends Model
     public $table = 'mcform';
 
     protected $fillable = [
-        'name', 'reason', 'user_id', 'date_to', 'date_from', 'created_by'
+        'name', 'typeofleaves','reason', 'user_id', 'date_to', 'date_from', 'created_by', 'status'
     ];
 }
