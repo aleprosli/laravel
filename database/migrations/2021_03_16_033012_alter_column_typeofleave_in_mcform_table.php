@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeofleavesTable extends Migration
+class AlterColumnTypeofleaveInMcformTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTypeofleavesTable extends Migration
      */
     public function up()
     {
-        Schema::create('typeofleaves', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('mcform', function (Blueprint $table) {
+
+            $table->foreign('typeofleave')->references('id')->on('type_of_leaves');
+
         });
     }
 
@@ -27,6 +27,8 @@ class CreateTypeofleavesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typeofleaves');
+        Schema::table('mcform', function (Blueprint $table) {
+            //
+        });
     }
 }

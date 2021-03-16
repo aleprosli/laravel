@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class LeaveController extends Controller
 {
     public function index(){
-        $table  = DB::select('SELECT * FROM `laravel`.`mcform`');
+        $table  = Mc1::all();
+        // dd($leave);
 
         return view('leaves.leave', compact('table'));
     }

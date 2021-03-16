@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMcformTable extends Migration
+class CreateTypeOfLeavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateMcformTable extends Migration
      */
     public function up()
     {
-        Schema::create('mcform', function (Blueprint $table) {
+        Schema::create('type_of_leaves', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('reason')->nullable();
             $table->timestamps();
-
-            // $table->foreign('typeofleaves_id')->references('id')->on('typeofleaves');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateMcformTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mcform');
+        Schema::dropIfExists('type_of_leaves');
     }
 }

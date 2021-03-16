@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Leave;
 
 class Mc1 extends Model
 {
@@ -16,6 +17,11 @@ class Mc1 extends Model
     public $table = 'mcform';
 
     protected $fillable = [
-        'name', 'typeofleaves','reason', 'user_id', 'date_to', 'date_from', 'created_by', 'status'
+        'name', 'typeofleave','reason', 'user_id', 'date_to', 'date_from', 'created_by', 'status'
     ];
+
+    public function leave()
+    {
+        return $this->belongsTo(Leave::class, 'typeofleave');
+    }
 }

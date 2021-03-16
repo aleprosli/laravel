@@ -28,7 +28,7 @@ class alController extends Controller
             'reason' => $request->reason,
             'user_id' => auth()->user()->id,
             'date_from' => $request->date_from,
-            'typeofleaves' => '2',
+            'typeofleave' => 2,
             'date_to' => $request->date_to,
             'created_by' => auth()->user()->id,
 
@@ -36,6 +36,6 @@ class alController extends Controller
 
         $al->save();
 
-        return view('leaves.leave');
+        return view('welcome');
     }
 }

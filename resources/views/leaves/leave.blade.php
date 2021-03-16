@@ -349,7 +349,7 @@
                                                     {{-- {{ $user->creationdate }} --}}
                                                 </td>
                                                 <td>
-                                                    {{ $user->typeofleaves }}
+                                                    {{ $user->leave->name }}
                                                 </td>
                                                 <td>{{ $user->reason }}</td>
                                                 <td>
