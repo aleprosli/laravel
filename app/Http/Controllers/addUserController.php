@@ -13,11 +13,11 @@ class addUserController extends Controller
         return view('users.addUser');
     }
 
-    public function store()
+    public function store(Request $request)
     {
 
         $addUser = new User([
-            'name' => $request->name ?? null,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
             'ic' => $request->ic,
@@ -30,6 +30,23 @@ class addUserController extends Controller
         ]);
 
         $addUser->save();
+
+        return view('welcome');
+    }
+
+    public function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'ic' => $data['ic'],
+            'gender' => $data['gender'],
+            'mnum' => $data['mnum'],
+            'address' => $data['address'],
+            'bank' => $data['bank'],
+            'bankacc' => $data['bankacc'],
+        ]);
 
         return view('welcome');
     }
