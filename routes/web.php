@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('ul', 'ulController');
     Route::resource('addUser', 'addUserController');
 
+    Route::get('/leave/action/approve/{mcfId}', ['as' => 'admin.action.approve', 'uses' => 'LeaveController@actionApprove']);
+    Route::get('/leave/action/decline/{mcfId}', ['as' => 'admin.action.decline', 'uses' => 'LeaveController@actionDecline']);
+
 	// Route::post('mc', ['as' => 'mc.create', 'uses' => 'mcController@create']);
 
     });

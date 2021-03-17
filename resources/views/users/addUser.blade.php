@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('addUser.store') }}" autocomplete="off">
                             @csrf
-                            <!-- @method('put') -->
+                            {{-- <!-- @method('put') --> --}}
 
 
                             <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>

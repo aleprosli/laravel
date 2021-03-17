@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class addUserController extends Controller
 {
@@ -26,7 +27,7 @@ class addUserController extends Controller
             'address' => $request->address,
             'bank' => $request->bank,
             'bankacc' => $request->bankacc,
-            
+
         ]);
 
         $addUser->save();

@@ -339,27 +339,47 @@
                                             <th scope="col">Date From</th>
                                             <th scope="col">Date To</th>
                                             <th scope="col">Status</th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach( $table as $user )
+                                        {{-- {{dd($table)}} --}}
+                                        @foreach( $table as $mcform )
+
                                                                             <tr>
-                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $mcform->name }}</td>
                                                 <td>
                                                     {{-- {{ $user->creationdate }} --}}
                                                 </td>
                                                 <td>
-                                                    {{ $user->leave->name }}
+                                                    {{ $mcform->leave->name }}
                                                 </td>
-                                                <td>{{ $user->reason }}</td>
+                                                <td>{{ $mcform->reason }}</td>
                                                 <td>
-                                                    {{ $user->date_from }}
-                                                </td>
-                                                <td>
-                                                    {{ $user->date_to }}
+                                                    {{ $mcform->date_from }}
                                                 </td>
                                                 <td>
-                                                    {{ $user->status }}
+                                                    {{ $mcform->date_to }}
+                                                </td>
+                                                <td>
+                                                    {{ $mcform->status }}
+                                                </td>
+
+
+                                                <td>
+                                                    {{-- @if ($mcform-) --}}
+
+                                                    {{-- @endif --}}
+                                                    <a href="{{ route("admin.action.approve",['mcfId' => $mcform->id])}}" class="btn btn-sm btn-primary">Approve</a>
+                                                </td>
+
+                                                <td>
+                                                    <a href="{{ route("admin.action.decline",['mcfId' => $mcform->id])}}" class="btn btn-sm btn-danger">Decline</a>
+                                                </td>
+                                                <td>
+
                                                 </td>
                                                 {{-- <td>{{ $user->status }}</td> --}}
                                                 {{-- <td>{{ auth()->user()->created_at }}</td>
